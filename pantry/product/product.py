@@ -6,6 +6,7 @@ Python module to track products as general items
 from json import load
 import pymongo
 
+
 class ProductHandler:
     """
     This class is the MongoDB client for the product database.
@@ -13,21 +14,24 @@ class ProductHandler:
     """
     def __init__(
         self,
-        mongo_filepath:str="login.json"
+        mongo_filepath: str = "login.json"
     ) -> None:
         with open(mongo_filepath, encoding='utf-8') as __credential_file:
             __credentials = load(__credential_file)
         self.__username = __credentials['username']
         self.__password = __credentials['password']
 
-        __connection_string = f"mongodb+srv://{self.__username}:{self.__password}"\
-                            "@pantrycluster.p3drg36.mongodb.net/?retryWrites=true&w=majority"
+        __connection_string = "mongodb+srv://"\
+            f"{self.__username}"\
+            f":{self.__password}"\
+            "@pantrycluster.p3drg36.mongodb.net/"\
+            "?retryWrites=true&w=majority"
         __client = pymongo.MongoClient(__connection_string)
         self.__database = __client.test
 
     def add_product(
         self,
-        product:'Product'
+        product: 'Product'
     ) -> None:
         """
         Adds a product to the database.
@@ -36,12 +40,13 @@ class ProductHandler:
 
     def update_product(
         self,
-        product:'Product'
+        product: 'Product'
     ):
         """
         Updates a product using fields from the input parameter `product`.
         """
         # TODO
+
 
 class Product(ProductHandler):
     """
@@ -49,9 +54,9 @@ class Product(ProductHandler):
     """
     def __init__(
         self,
-        name:str = "",
-        quantity_type:str = "",
-        tags:list = None
+        name: str = "",
+        quantity_type: str = "",
+        tags: list = None
     ) -> None:
         self.name = name
         self.quantity_type = quantity_type
@@ -66,10 +71,13 @@ class Product(ProductHandler):
         return self.name
 
     def add_brand(self, brand: str) -> None:
+        """
+        Function to add a brand to a product
+        """
         self.brands.append(brand)
 
     def add_tag(self, tag: str) -> None:
         """
-        Function to add a tag to a 
+        Function to add a tag to a product
         """
         self.tags.append(tag)

@@ -6,6 +6,7 @@ from typing import List
 
 from pantry.equipment.equipment import Equipment
 
+
 class Storage(Equipment):
     """
     Generic class for a storage space. This was created to store
