@@ -130,3 +130,6 @@ dmypy.json
 
 # MongoDB login key
 login.json
+
+# AWS credentials
+credentials.json
