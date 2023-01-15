@@ -133,3 +133,6 @@ login.json
 
 # AWS credentials
 credentials.json
+
+# Mac OS Cache
+.DS_Store
