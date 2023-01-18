@@ -128,11 +128,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# MongoDB login key
-login.json
-
-# AWS credentials
-credentials.json
+# Credentials
+/secrets
+app-config.env
 
 # Mac OS Cache
 .DS_Store
