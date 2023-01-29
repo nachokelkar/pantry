@@ -134,5 +134,9 @@ login.json
 # AWS credentials
 config/
 
+# Credentials
+/secrets
+app-config.env
+
 # Mac OS Cache
 .DS_Store
