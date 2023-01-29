@@ -1,18 +1,32 @@
 """
 This module keeps track of the grocery list.
 """
-from flask import Flask
-
-app = Flask(__name__)
+import boto3
 
 
-@app.route("/add", methods=["POST"])
-def add_item():
-    # Function to add item to Mongo
-    pass
+class GroceryListHandler:
+    def __init__(self):
+        self.dynamodb = boto3.resource('dynamodb')
+        self.table = self.dynamodb.Table('users')
 
+    def update_item(self, user, item):
+        self.table.update_item(
+            Key={
+                "username": user
+            },
+            UpdateExpression="SET list = list_append(list, :item)",
+            ExpressionAttributeValues={
+                ':item': [item],
+            }
+        )
 
-@app.route("/remove", methods=["PUT"])
-def remove_item():
-    # Function to remove an item
-    pass
+    def remove_item(self, user, item):
+        self.table.update_item(
+            Key={
+                "username": user
+            },
+            UpdateExpression="REMOVE list :item",
+            ExpressionAttributeValues={
+                ':item': [item],
+            }
+        )
