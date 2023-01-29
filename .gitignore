@@ -132,7 +132,7 @@ dmypy.json
 login.json
 
 # AWS credentials
-credentials.json
+config/
 
 # Mac OS Cache
 .DS_Store
