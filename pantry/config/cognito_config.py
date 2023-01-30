@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 load_dotenv("./pantry/config/app-config.env")
 
 TESTING = True
-DEBUG = True
+DEBUG = False
 
 COGNITO_REGION = environ.get('COGNITO_REGION')
 COGNITO_DOMAIN = environ.get('COGNITO_DOMAIN')
