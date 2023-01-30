@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Grocery List App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <h1>Grocery List</h1>
+    <ul id="grocery-list"></ul>
+    <br>
+    <input type="text" id="item-input">
+    <button id="add-item-button">Add Item</button>
+  </body>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</html>
