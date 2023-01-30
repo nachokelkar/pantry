@@ -6,7 +6,7 @@ from flask import (Flask, redirect, render_template, request, session,
                    url_for)
 from flask_cognito_auth import (CognitoAuthManager, callback_handler,
                                 login_handler, logout_handler)
-from pantry.groceries import GroceryListHandler
+from groceries import GroceryListHandler
 
 app = Flask(__name__)
 app.secret_key = "secret_key"
