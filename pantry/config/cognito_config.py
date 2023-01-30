@@ -5,6 +5,7 @@ load_dotenv("./pantry/config/app-config.env")
 
 TESTING = True
 DEBUG = True
+
 COGNITO_REGION = environ.get('COGNITO_REGION')
 COGNITO_DOMAIN = environ.get('COGNITO_DOMAIN')
 COGNITO_USER_POOL_ID = environ.get('COGNITO_USER_POOL_ID')
